@@ -26,9 +26,9 @@ const useStyles = makeStyles(theme => ({
 const LandingPage = () => {
   const classes = useStyles();
   const [state, setState] = useState({
-    temperature: '',
-    pressure: '',
-    humidity: '',
+    temperature: 'N / A',
+    pressure: 'N / A',
+    humidity: 'N / A',
   });
 
   const inputChangeHandler = event => {
@@ -42,22 +42,22 @@ const LandingPage = () => {
           className={classes.item}
           name='temperature'
           placeholder='Temperature'
-          value={state && state.temperature || ''}
-          readOnly={false}
+          value={state.temperature}
+          readOnly={true}
           onChange={inputChangeHandler} />
         <OutlinedTextField
           className={classes.item}
           name='pressure'
           placeholder='Air pressure'
-          value={state && state.pressure || ''}
-          readOnly={false}
+          value={state.pressure}
+          readOnly={true}
           onChange={inputChangeHandler} />
         <OutlinedTextField
           className={classes.item}
           name='humidity'
           placeholder='Humidity'
-          value={state && state.humidity || ''}
-          readOnly={false}
+          value={state.humidity}
+          readOnly={true}
           onChange={inputChangeHandler} />
       </div>
     </div>

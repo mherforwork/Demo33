@@ -1,7 +1,11 @@
 
 import React from 'react';
+import { of } from 'rxjs';
+import { ajax } from 'rxjs/ajax'
+import { map, catchError } from 'rxjs/operators'
 import { makeStyles } from '@material-ui/core/styles';
 
+import { BACKEND_HTTP_URL } from 'config';
 import MeasureBoard from 'components/MeasureBoard';
 
 const useStyles = makeStyles(theme => ({
@@ -21,6 +25,12 @@ const useStyles = makeStyles(theme => ({
 
 const Layout = ({ children }) => {
   const classes = useStyles();
+  const observable$ = ajax.getJSON(BACKEND_HTTP_URL)
+    .pipe(
+      map(response => response),
+      catchError(error => of(error))
+    )
+  console.log("observable=>", observable$)
 
   return (
     <div className={classes.root}>

@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2)
   },
   textField: props => ({
-    border: `1px solid ${props.readOnly ? theme.palette.background.default : '#6B76A1'}`,
+    border: `1px solid ${props.readOnly ? '#6B76A1' : '#6B76A1'}`,
     borderRadius: theme.spacing(0.5),
     background: 'transparent',
     width: '100%',
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
       border: 'none'
     },
     '&:hover': {
-      border: `1px solid ${props.readOnly ? theme.palette.background.default : '#6B76A1'}`
+      border: `1px solid ${props.readOnly ? '#6B76A1' : '#6B76A1'}`
     }
   }),
   error: {
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   inputAdornment: {
     position: 'absolute',
     right: theme.spacing(2)
-  },
+  }
 }));
 
 const OutlinedTextField = ({ className, value, placeholder, showLength, limit, type, error, onChange, readOnly, fontColor, ...rest }) => {
